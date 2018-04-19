@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="abc"></div>
+    <h4>开天辟地第一步~~~噜噜噜</h4>
+    <p>这个例子嘛</p>
+    <p>通过使用ajax，向localhost:3001端口发送一个请求</p>
+    <p>localhost:3001端口，通过node.js服务建立，使用nodejs的fs API 读取到json文件的数据，返回给客户端</p>
+
+    <script src="../../../lib/jquery-3.3.1.min.js"></script>
+    <script>
+        $.ajax({
+            url: 'http://localhost:3001',
+            type: 'get',
+            data: {
+                user: '叶子汉',
+                age: '18'
+            },
+            dataType: 'json',
+            success: function(data){
+                $("#abc").html(data.data);
+            },
+            error: function(err){
+                console.log('error ' + err);
+            }
+        })
+
+    </script>
+</body>
+</html>

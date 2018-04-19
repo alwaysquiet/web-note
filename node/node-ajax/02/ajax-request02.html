@@ -7,33 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="abc"></div>
     <h4>登录~~咚咚咚</h4>
-    <form id="form1" action="http://localhost:3001" name='form1'>
-        <label for="">用户名 <input type="text" value="叶子汉" name="userName" autocomplete=""></label>
+    <form id="form1">
+        <label for="">用户名 <input type="text" value="alwaysquiet" name="username" autocomplete=""></label>
+        </br>   
         <label for="">密  码 <input type="password" value="123456" name="password" autocomplete=""></label>
-        <input id="submit" type="submit" value="提交">
-        <button id="btn" type="button">button提交</button>
+        </br>   
+        <button id="btn" type="button">button提交 非submit</button>
     </form>
     <div id="result"></div>
 
-    <script src="jquery-3.3.1.min.js"></script>
+    <script src="../../../lib/jquery-3.3.1.min.js"></script>
     <script>
-        // $.ajax({
-        //     url: 'http://localhost:3001',
-        //     type: 'get',
-        //     data: {
-        //         user: '叶子汉',
-        //         age: '18'
-        //     },
-        //     dataType: 'json',
-        //     success: function(data){
-        //         $("#abc").html(data.data);
-        //     },
-        //     error: function(err){
-        //         console.log('error ' + err);
-        //     }
-        // })
 
         $('#btn').click(function(){
             $.ajax({
@@ -43,13 +28,17 @@
                 dataType: 'json',
                 success: function(data){
                     console.log(data);
-                    $('#result').text(data.userName);
+                    var str = "<p>用户名：" + data.username + '</p>';       
+                    str += "<p>密码：" + data.password + '</p>';
+                    str += "<p>" + data.success + '</p>';
+                    $('#result').html(str);
                 },
                 error: function(err){
                     console.log(err);
                 }
             })
         })
+        
     </script>
 </body>
 </html>
