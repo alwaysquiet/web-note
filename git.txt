@@ -1,0 +1,19 @@
+git init
+
+touch README.md
+
+git add README.md
+
+git status
+
+git commit -m 'first commit'
+
+git remote add origin git@github.com:alwaysquiet/web-note.git
+
+git push -u origin master
+
+touch .gitignore
+
+.DS_Store
+.vscode
+node_modules
