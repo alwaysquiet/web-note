@@ -11,7 +11,8 @@ http.createServer(function(req, res){
     }
 
     //  由于使用了post 提交   提交的参数数据不在query参数中
-    //  
+    //  emitter.addListener(eventName, listener)
+    //  通过监听 data事件，将由post提交的一段一段的数据，拼接到一起。
 
     if(req.url == '/login' && req.method.toLowerCase() == 'post') {
         var allData = "";
