@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="abc"></div>
+    <h4>登录~~咚咚咚</h4>
+    <form id="form1" action="http://localhost:3001" name='form1'>
+        <label for="">用户名 <input type="text" value="叶子汉" name="userName" autocomplete=""></label>
+        <label for="">密  码 <input type="password" value="123456" name="password" autocomplete=""></label>
+        <input id="submit" type="submit" value="提交">
+        <button id="btn" type="button">button提交</button>
+    </form>
+    <div id="result"></div>
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        // $.ajax({
+        //     url: 'http://localhost:3001',
+        //     type: 'get',
+        //     data: {
+        //         user: '叶子汉',
+        //         age: '18'
+        //     },
+        //     dataType: 'json',
+        //     success: function(data){
+        //         $("#abc").html(data.data);
+        //     },
+        //     error: function(err){
+        //         console.log('error ' + err);
+        //     }
+        // })
+
+        $('#btn').click(function(){
+            $.ajax({
+                url: 'http://localhost:3001/login',
+                type: 'POST',
+                data: $('#form1').serialize(),
+                dataType: 'json',
+                success: function(data){
+                    console.log(data);
+                    $('#result').text(data.userName);
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            })
+        })
+    </script>
+</body>
+</html>
